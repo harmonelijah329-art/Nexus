@@ -1,0 +1,48 @@
+{
+  "name": "nexus",
+  "version": "0.1.0",
+  "description": "Nexus Platform - The Future of Connected Computing",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "scripts": {
+    "dev": "node --loader ts-node/esm --no-warnings=ExperimentalWarning src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest",
+    "lint": "eslint . --ext .ts,.tsx",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "db:migrate": "node scripts/migrate.js",
+    "db:seed": "node scripts/seed.js",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "services:start": "npm run docker:up && npm run dev"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "typescript": "^5.1.6",
+    "pg": "^8.11.1",
+    "redis": "^4.6.7",
+    "jsonwebtoken": "^9.0.1",
+    "bcryptjs": "^2.4.3",
+    "ws": "^8.13.0",
+    "uuid": "^9.0.0",
+    "dotenv": "^16.3.1",
+    "pino": "^8.14.1",
+    "prometheus-client": "^14.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.1",
+    "@types/express": "^4.17.17",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.44.0",
+    "prettier": "^2.8.8",
+    "vitest": "^0.33.0",
+    "ts-node": "^10.9.1"
+  }
+}
